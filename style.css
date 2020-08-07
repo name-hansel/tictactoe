@@ -63,3 +63,7 @@ body {
     margin-left: 20px;
 }
 
+.reset {
+    cursor: pointer;
+}
+
