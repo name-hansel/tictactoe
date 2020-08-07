@@ -119,6 +119,3 @@ function isDraw() {
     return;
 }
 
-function drawLine() {
-
-}
