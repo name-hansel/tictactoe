@@ -28,7 +28,7 @@ body,pre {
 }
 
 #current, .icon {
-    width: 40px;
+    width: 25px;
 }
 
 .o {
@@ -40,7 +40,6 @@ body,pre {
     display: inline-block;
     width: 370px;
     height: 370px;
-    margin: 25px 25vw;
 }
 
 .container {

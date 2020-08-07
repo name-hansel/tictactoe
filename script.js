@@ -93,10 +93,10 @@ function addSymbol(x,row,column) {
     $('.o').toggle();
     $('.x').toggle();
     if(x_o == "1") {
-        $(x).append("<img src='images/x.png'/>")
+        $(x).append("<img src='./images/x.png'/>")
         box[row][column] = 1; //update value in box array
     } else {
-        $(x).append("<img src='images/o.png'/>") //set 'O'
+        $(x).append("<img src='./images/o.png'/>") //set 'O'
         box[row][column] = -1; //update value in box array
     }
 }
