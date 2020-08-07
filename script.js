@@ -2,7 +2,7 @@
 var x_o = 1; //if 1 -> x, -1 -> o
 var box = [[0,0,0],[0,0,0],[0,0,0]]; //true = occupied, box[row][column]
 var nextGame = 0;
-var win = "";
+var win = [];
 
 $(document).ready(function() {
     $('.ttt-box').click(function() {
@@ -16,11 +16,14 @@ $(document).ready(function() {
                 //check if anyone wins
                 if(checkWin()) { 
                     gameWon();
+                    //draw line
+                    drawLine();
+                    return;
                 } else {
                     x_o *= -1; //change player
                 }
             } else { //box is not empty
-                $('.warning').text('TRY AGAIN'); //user clicks on occupied box
+                $('.warning').text('    TRY AGAIN'); //user clicks on occupied box
             }
             isDraw(); //check if draw
         } else { //draw or won and user clicks
@@ -44,7 +47,7 @@ function checkWin() {
         //check right to left cross - if any cross gives 3 or -3, -> win
         sum = box[0][2]+box[1][1]+box[2][0];
         if(sum==3 || sum==-3) {
-
+            win = "rcross";
             return 1;
         }
 
@@ -52,11 +55,13 @@ function checkWin() {
         //check rows - if any row gives 3 or -3, -> win
             sum = arraySum(box[i]);
             if(sum==3 || sum==-3) {
+                win = ["row",i];
                 return 1;
             }
         //check columns - if any column gives 3 or -3, -> win
             sum=box[0][i]+box[1][i]+box[2][i];
             if(sum==3 || sum==-3) {
+                win = ["column",i];
                 return 1;
             }   
         }
@@ -79,21 +84,19 @@ function gameWon() {
     } else { //current player is O
         $('.mainheading').text('O WINS!');
     }
-    //line here
-
     $('.ttt-box').click(function() { //reload page if user clicks after winning
         location.reload();
     });
 }
 
 function addSymbol(x,row,column) {
+    $('.o').toggle();
+    $('.x').toggle();
     if(x_o == "1") {
-        $(x).text("X"); //set 'X'
-        $('#current').text("O"); //next turn is 'O'
+        $(x).append("<img src='images/x.png'/>")
         box[row][column] = 1; //update value in box array
     } else {
-        $(x).text("O"); //set 'O'
-        $('#current').text("X"); //next turn is 'X'
+        $(x).append("<img src='images/o.png'/>") //set 'O'
         box[row][column] = -1; //update value in box array
     }
 }
@@ -108,7 +111,14 @@ function isDraw() {
     if(!include) {
         nextGame = 1;
         $('.mainheading').text('DRAW!');
+        $('.reset').text('Click to reset');
+        $('#next').hide();
+        $('#current').hide();
         $('.mainheading').css('color', 'red');
     }
     return;
+}
+
+function drawLine() {
+
 }

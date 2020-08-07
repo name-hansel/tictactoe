@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
 
-body {
+body,pre {
     font-family: 'DM Mono', monospace;
 }
 
 .whole {
     display: flex;
+    flex: 0 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -13,26 +14,33 @@ body {
 
 .mainheading {
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
+    font-weight: bolder;
 }
 
 .current-heading {
     display: flex;
+    font-weight: bold;
+    margin-top: -70px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: -40px;
 }
 
-#current {
-    margin-left: 20px;
+#current, .icon {
+    width: 40px;
+}
+
+.o {
+    display: none;
 }
 
 .ttt-grid {
     background-color: black;
     display: inline-block;
-    width: 460px;
-    height: 460px;
-    margin: 20px 25vw;
+    width: 370px;
+    height: 370px;
+    margin: 25px 25vw;
 }
 
 .container {
@@ -49,19 +57,17 @@ body {
 
 .ttt-box {
     background-color: white;
-    width: 150px;
-    height: 150px;
-    font-size: 50px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
 
-.warning {
-    font-size: 10px;
+.warning, pre {
+    font-size: 9px;
     color: red;
-    margin-left: 20px;
 }
 
 .reset {
@@ -74,8 +80,13 @@ body {
         height: 310px;
     }
     .ttt-box {
+        background-color: white;
         width: 100px;
         height: 100px;
         font-size: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
     }
 }
