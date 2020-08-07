@@ -13,18 +13,21 @@ body,pre {
 }
 
 .mainheading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-size: 60px;
-    font-weight: bolder;
+    font-size: 56px;
 }
 
 .current-heading {
     display: flex;
     font-weight: bold;
-    margin-top: -70px;
     font-size: 20px;
     justify-content: center;
     align-items: center;
+    margin-top: -50px;
 }
 
 #current, .icon {
@@ -71,6 +74,14 @@ body,pre {
 
 .reset {
     cursor: pointer;
+}
+
+.box-icon, .win-icon {
+    width: 60px;
+}
+
+.win-icon {
+    margin-right: 40px;
 }
 
 @media only screen and (max-width: 500px) {

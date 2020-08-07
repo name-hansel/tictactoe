@@ -75,14 +75,15 @@ function arraySum(arr) {
 
 function gameWon() {
     nextGame = 1;
-    $('.mainheading').css('color', 'red'); //change color of mainheading to red
+    $('.mainheading').css('color', 'red');
+    $('.mainheading').text(''); //change color of mainheading to red
     $('#next').hide();
     $('#current').hide();
     $('.reset').text('Click to reset');
     if(x_o == 1) { //current player is X 
-        $('.mainheading').text('X WINS!');
+        $('.mainheading').append("<img src='./images/x-red.png' class='win-icon'/>"+"WINS");
     } else { //current player is O
-        $('.mainheading').text('O WINS!');
+        $('.mainheading').append("<img src='./images/o-red.png' class='win-icon'/>"+"WINS");
     }
     $('.ttt-box').click(function() { //reload page if user clicks after winning
         location.reload();
@@ -93,10 +94,10 @@ function addSymbol(x,row,column) {
     $('.o').toggle();
     $('.x').toggle();
     if(x_o == "1") {
-        $(x).append("<img src='./images/x.png'/>")
+        $(x).append("<img src='./images/x.png' class='box-icon'/>")
         box[row][column] = 1; //update value in box array
     } else {
-        $(x).append("<img src='./images/o.png'/>") //set 'O'
+        $(x).append("<img src='./images/o.png' class='box-icon'/>") //set 'O'
         box[row][column] = -1; //update value in box array
     }
 }
